@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/listFechaAux"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"/>
+    <TextView
+        android:id="@+id/listFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/listFechaAux"
+        android:textColor="@color/design_default_color_primary"
+        />
+
+    <TextView
+        android:id="@+id/listTemperaturaAux"
+        android:layout_below="@+id/listFechaAux"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperatura"/>
+    <TextView
+        android:id="@+id/listTemperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listFechaAux"
+        android:layout_toRightOf="@+id/listTemperaturaAux"
+        android:textColor="@color/design_default_color_primary"
+        />
+
+    <TextView
+        android:id="@+id/listHumedadAux"
+        android:layout_below="@+id/listFechaAux"
+        android:layout_toRightOf="@+id/listTemperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Humedad"/>
+    <TextView
+        android:id="@+id/listHumedad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listFechaAux"
+        android:layout_toRightOf="@+id/listHumedadAux"
+        android:textColor="@color/design_default_color_primary_dark"
+        />
+</RelativeLayout>
