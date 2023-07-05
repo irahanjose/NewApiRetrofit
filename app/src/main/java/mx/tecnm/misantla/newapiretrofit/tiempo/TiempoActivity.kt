@@ -32,25 +32,20 @@ class TiempoActivity : AppCompatActivity() {
             .build()
 
 
-        var ApiTiempo = retrofitTiempo.create(ApiTiempo::class.java)
-        var callTiempo = ApiTiempo.getTiempo()
-
-        // empieza a bajarse los datos
-        callTiempo.enqueue(object :Callback<Metereologia>{
-                  // repuesta de toda la cadena JSON
-            override fun onResponse(call: Call<Metereologia>, response: Response<Metereologia>) {
-                for (res in response.body()?.list!!){
-                    Log.e("TAG Respuesta Temp: ", res.main.temp)
-                    Log.e("TAG Respuesta Humedad",res.main.humidity)
-                }
-            }
-// en caso de que haya ocurrido un error
-            override fun onFailure(call: Call<Metereologia>, t: Throwable) {
+        var apiTiempo = retrofitTiempo.create(ApiTiempo::class.java)
+        var callTiempo = apiTiempo.getTiempo()
+        callTiempo.enqueue(object : Callback<Metereologia> {
+            override fun onFailure(call: Call<Metereologia>, t: Throwable?) {
                 Log.e("TAG Fallo: ", t.toString())
             }
 
+            override fun onResponse(call: Call<Metereologia>, response: Response<Metereologia>) {
+                for(res in response.body()?.list!!){
+                    Log.d("TAG Respuesta: ", res.main.temp)
+                }
+                binding.tiempoActivityRV.adapter = TiempoAdapter(response.body()!!.list)
+            }
 
         })
-
     }
 }
